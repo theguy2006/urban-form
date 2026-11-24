@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    input[type="submit"]{
+        background: linear-gradient(135deg, #D7FF38 0%, #E9FF9C 100%);
+    }
+}
+
+input, button {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 400px;
+}
+button{
+    margin-top: 10px;
+    font-weight: 800;
+    color: rgba(0 0 0 / .8);
+    padding: 16px;
+
+}
+p{
+    margin-bottom: 32px;
+    width: 400px;
+    text-align: center;
+    color: rgba(0 0 0/.8)
+
+}
+
+h2 {
+    margin-bottom: 32px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.containerpai {
+    width: 100%;
+    height: 100vh;
+    background-color: #F4F3EF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 80%;
+    height: 90vh;
+    background-color: #c9c9c9;
+    border-radius: 32px;
+    padding: 32px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.esquerda, .direita {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.formlogin, .facalogin, .formcadastro, .facaCadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.facalogin, .facaCadastro{
+    position: absolute;
+    h2, p{
+        color: #F4F3EF;
+    }
+}
+
+/* plano de fundo */
+.card::after{
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-image: url(Colagem\ Urbana\ em\ Preto\ e\ Cinza.png);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* LOGIN ACTIVE */
+.card.loginActive .containerlogin{
+opacity: 0;
+pointer-events: none;
+
+}
+.card.loginActive .formcadastro{
+opacity: 0;
+pointer-events: none;
+}
+.card.loginActive:after{
+transform: translateX(50%);
+}
+/* CADASTRO ACTIVE */
+.card.cadastroActive .facaCadastro{
+opacity: 0;
+pointer-events: none;
+}
+
+.card.cadastroActive .formlogin{
+opacity: 0;
+pointer-events: none;
+}
+.card.cadastroActive .facaCadastro{
+    transform: translateX(0);
+    transition: all .3s .3s;
+    opacity: 1;
+}
+.card.loginActive .formlogin{
+    transition: all .3s .3s;
+    opacity: 1;
+
+} 
+.card.cadastroActive::after{
+transform: translateX(-50%);
+}
+.card.cadastroActive .facalogin{
+    transform: translateX(0);
+    transition: all .3s .3s;
+    opacity: 1;
+}
+.card.cadastroActive .formcadastro{
+    transition: all .3s .3s;
+    opacity: 1;
+
+}
+
+/* transition */
+
+.card::after{
+transition: all .5s;
+}
+.facaCadastro{
+    transition: all .3s 0;
+    transform: translateX(200%);
+}
+
+.formlogin{
+    opacity: 0;
+    transition: all .3s 0;
+}
+.facalogin{
+    transition: all .3s 0;
+    transform: translateX(-200%);
+}
+
+.facaCadastro{
+    opacity: 0;
+    transition: all .3s 0;
+
+}
